@@ -1,0 +1,6 @@
+@Mango.Services.CartAPI_HostAddress = http://localhost:5220
+
+GET {{Mango.Services.CartAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
