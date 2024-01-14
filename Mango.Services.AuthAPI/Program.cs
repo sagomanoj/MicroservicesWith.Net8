@@ -16,7 +16,7 @@ builder.Services.AddDbContext<AppDBContext>(option =>
 });
 
 
-builder.Services.AddIdentity<ApplicationUser,IdentityRole>()
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<AppDBContext>()
     .AddDefaultTokenProviders();
 
@@ -33,11 +33,13 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "AUTH API");
+    c.RoutePrefix = string.Empty;
+});
 
 app.UseHttpsRedirection();
 app.UseAuthentication();

@@ -69,11 +69,8 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
-    if (!app.Environment.IsDevelopment())
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Cart API");
-        c.RoutePrefix = string.Empty;
-    }
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "ORDER API");
+    c.RoutePrefix = string.Empty;
 });
 
 app.UseHttpsRedirection();
